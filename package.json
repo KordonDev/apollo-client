@@ -17,7 +17,7 @@
     "compile:test": "tsc -p tsconfig.test.json",
     "compile:browser": "rm -rf ./dist && mkdir ./dist && browserify ./lib/apollo.umd.js -o=./dist/index.js && npm run minify:browser",
     "minify:browser": "uglifyjs --compress --mangle --screw-ie8 -o=./dist/index.min.js -- ./dist/index.js",
-    "browser:standalone": "rm -rf ./dist && mkdir ./dist && NODE_ENV=production browserify ./lib/apollo.umd.js -t [ loose-envify --NODE_ENV production ] --standalone ApolloClient > ./dist/index.js && npm run minify:browser",
+    "browser:standalone": "rm -rf ./dist && mkdir ./dist && NODE_ENV=production browserify ./lib/apollo.umd.js -t [ loose-envify purge --NODE_ENV production ] --standalone apolloClient > ./dist/index.js && npm run minify:browser",
     "watch": "tsc -w",
     "watch:test": "tsc -p tsconfig.test.json -w",
     "bundle": "rollup -c",
