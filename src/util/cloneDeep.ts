@@ -11,7 +11,7 @@ export function cloneDeep <T>(value: T): T {
   if (value !== null && typeof value === 'object') {
     const nextValue: any = {};
     for (const key in value) {
-      if (value.hasOwnProperty(key)) {
+      if (value.hasOwnProperty(key) && key !== 'startToken' && key !== 'endToken') {
         nextValue[key] = cloneDeep(value[key]);
       }
     }
